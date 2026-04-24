@@ -6,9 +6,10 @@ import PageLayout from "../layouts/PageLayout.astro";
   title="Page not found"
   description="The page you are looking for does not exist."
   noindex={true}
+  hideNav={true}
 >
   <section class="notfound">
-    <div class="container-narrow">
+    <div class="notfound-inner">
       <p class="notfound-label">404</p>
       <h1 class="notfound-title">Not here.</h1>
       <p class="notfound-body">
@@ -20,24 +21,29 @@ import PageLayout from "../layouts/PageLayout.astro";
 
 <style>
   .notfound {
-    padding: clamp(112px, 16vh, 192px) 0 96px;
+    padding: clamp(112px, 16vh, 192px) clamp(24px, 6vw, 80px) 96px;
     min-height: 60vh;
+  }
+
+  .notfound-inner {
+    max-width: 720px;
+    margin: 0 auto;
   }
 
   .notfound-label {
     font-family: var(--font-body);
     font-size: 11px;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: var(--text-muted);
+    color: var(--clay);
     margin: 0 0 24px;
   }
 
   .notfound-title {
     font-family: var(--font-display);
     font-size: var(--text-5xl);
-    font-weight: 360;
+    font-weight: 500;
     line-height: 1;
     letter-spacing: -0.02em;
     color: var(--text);
@@ -59,7 +65,7 @@ import PageLayout from "../layouts/PageLayout.astro";
   }
 
   .notfound-body a:hover {
-    color: var(--brand-primary);
-    border-bottom-color: var(--brand-primary);
+    color: var(--clay);
+    border-bottom-color: var(--clay);
   }
 </style>

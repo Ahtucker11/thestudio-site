@@ -3,47 +3,101 @@ import { site } from "../../lib/site";
 const year = new Date().getFullYear();
 ---
 
-<footer class="studio-footer">
-  <div class="idx-column">
-    <div class="idx-column-inner studio-footer-inner">
-      <a href={`mailto:${site.email}`} class="studio-footer-email">{site.email}</a>
-      <p class="studio-footer-copy">© {year} · The Studio at 705 East McMillan</p>
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <span class="footer-mark">
+        <span class="footer-mark-name">The Studio</span>
+        <span class="footer-mark-sep" aria-hidden="true">|</span>
+        <span class="footer-mark-tagline">Walnut Hills</span>
+      </span>
+      <p class="footer-copy">© {year} · The Studio at 705 East McMillan</p>
     </div>
+
+    <a href={`mailto:${site.email}`} class="footer-email">{site.email}</a>
   </div>
 </footer>
 
 <style>
-  .studio-footer {
-    margin-top: 96px;
+  .footer {
+    background: var(--ink);
+    color: var(--text-inv);
+    padding: clamp(48px, 8vh, 80px) 0;
   }
 
-  .studio-footer-inner {
-    padding-top: 28px;
-    border-top: 1px solid var(--border-soft);
-    padding-bottom: 72px;
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+    justify-content: space-between;
   }
 
-  .studio-footer-email {
-    display: inline-block;
+  @media (min-width: 720px) {
+    .footer-inner {
+      flex-direction: row;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-mark {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 10px;
+    line-height: 1;
+  }
+
+  .footer-mark-name {
     font-family: var(--font-display);
-    font-weight: 400;
-    font-variation-settings: "opsz" 144;
-    font-size: 17px;
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--text-inv);
   }
 
-  .studio-footer-email:hover {
-    border-bottom-color: var(--text-soft);
+  .footer-mark-sep {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 18px;
+    color: var(--text-inv-muted);
   }
 
-  .studio-footer-copy {
-    margin: 10px 0 0;
+  .footer-mark-tagline {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-inv-muted);
+  }
+
+  .footer-copy {
     font-family: var(--font-mono);
     font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    color: var(--text-faint);
+    letter-spacing: 0.08em;
+    color: var(--text-inv-muted);
+    margin: 0;
+  }
+
+  .footer-email {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(18px, 2vw, 22px);
+    color: var(--text-inv);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 4px;
+    transition: border-color var(--dur-fast) var(--ease-out);
+  }
+
+  .footer-email:hover {
+    border-bottom-color: var(--clay);
+    color: var(--clay);
   }
 </style>

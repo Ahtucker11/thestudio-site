@@ -1,40 +1,54 @@
 /*
  * DESIGN TOKENS — The Studio
  *
- * Warm editorial palette. Dusty green + cream + oxblood accent.
- * Fraunces display, Inter body.
+ * Palette per 2026-04-24 design guide: ink, warm white, clay, olive, taupe.
+ * Typography: EB Garamond display + Inter body + JetBrains Mono meta.
  */
 
 :root {
   /* === BRAND COLORS === */
-  --brand-primary: #3F4D42;       /* dusty dark green, echoing exterior paint */
-  --brand-primary-light: #4F5D52; /* hover/lighter */
-  --brand-primary-card: #3F4D42;
-  --brand-primary-pale: #E8EBE8;
+  --ink: #111111;
+  --warm-white: #F6F4EF;
+  --clay: #C56A45;
+  --clay-dark: #A85830;
+  --olive: #55614A;
+  --olive-dark: #404A38;
+  --taupe: #BE8376;
 
-  --brand-accent: #7A2E2A;        /* oxblood door red — used once */
-  --brand-accent-light: #8E3E3A;
-  --brand-accent-dark: #5E2220;
+  /* Semantic aliases for existing component refs */
+  --brand-primary: var(--olive);
+  --brand-primary-light: #66735A;
+  --brand-primary-card: var(--olive);
+  --brand-primary-pale: #E5E7E1;
+
+  --brand-accent: var(--clay);
+  --brand-accent-light: #D27A57;
+  --brand-accent-dark: var(--clay-dark);
 
   /* === SURFACES === */
-  --bg: #F5EFE6;
-  --bg-warm: #F4EDE2;
-  --bg-aged: #EFE7D9;
-  --cream: #FAF6EE;
+  --bg: var(--warm-white);
+  --bg-warm: #EFEBE1;
+  --bg-aged: #E8E3D6;
+  --cream: #FBF9F3;
+  --bg-dark: var(--ink);
 
   /* === TEXT === */
-  --text: #2C2420;
-  --text-soft: #4A3F38;
+  --text: var(--ink);
+  --text-soft: #3A3531;
   --text-muted: #6B6259;
   --text-faint: #A39889;
+  --text-inv: var(--warm-white);
+  --text-inv-soft: rgba(246, 244, 239, 0.78);
+  --text-inv-muted: rgba(246, 244, 239, 0.55);
 
   /* === BORDERS === */
-  --border: rgba(44, 36, 32, 0.08);
-  --border-soft: rgba(44, 36, 32, 0.12);
-  --border-strong: rgba(44, 36, 32, 0.22);
+  --border: rgba(17, 17, 17, 0.08);
+  --border-soft: rgba(17, 17, 17, 0.12);
+  --border-strong: rgba(17, 17, 17, 0.22);
+  --border-inv: rgba(246, 244, 239, 0.18);
 
   /* === FONTS === */
-  --font-display: "Fraunces", "Georgia", serif;
+  --font-display: "EB Garamond", "Garamond", "Iowan Old Style", Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
 
@@ -68,16 +82,19 @@
   --space-32: 128px;
 
   /* === BORDER RADIUS === */
-  --r-sm: 4px;
-  --r-md: 6px;
-  --r-lg: 10px;
-  --r-xl: 16px;
+  --r-sm: 2px;
+  --r-md: 4px;
+  --r-lg: 6px;
+  --r-xl: 10px;
   --r-full: 9999px;
 
   /* === SHADOWS === */
-  --shadow-sm: 0 1px 3px rgba(44, 36, 32, 0.06), 0 1px 2px rgba(44, 36, 32, 0.04);
-  --shadow-md: 0 4px 12px rgba(44, 36, 32, 0.08), 0 2px 4px rgba(44, 36, 32, 0.05);
-  --shadow-lg: 0 12px 32px rgba(44, 36, 32, 0.12), 0 4px 8px rgba(44, 36, 32, 0.06);
+  --shadow-sm: 0 1px 3px rgba(17, 17, 17, 0.06), 0 1px 2px rgba(17, 17, 17, 0.04);
+  --shadow-md: 0 4px 12px rgba(17, 17, 17, 0.08), 0 2px 4px rgba(17, 17, 17, 0.05);
+  --shadow-lg: 0 12px 32px rgba(17, 17, 17, 0.12), 0 4px 8px rgba(17, 17, 17, 0.06);
+
+  /* === NAV === */
+  --nav-height: 72px;
 
   /* === MOTION === */
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
@@ -88,17 +105,17 @@
 
 /* === FONT FACES === */
 @font-face {
-  font-family: "Fraunces";
-  src: url("/fonts/Fraunces-Variable.woff2") format("woff2");
-  font-weight: 100 900;
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond-Variable.woff2") format("woff2");
+  font-weight: 400 800;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Fraunces";
-  src: url("/fonts/Fraunces-Italic-Variable.woff2") format("woff2");
-  font-weight: 100 900;
+  font-family: "EB Garamond";
+  src: url("/fonts/EBGaramond-Italic-Variable.woff2") format("woff2");
+  font-weight: 400 800;
   font-style: italic;
   font-display: swap;
 }

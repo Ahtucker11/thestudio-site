@@ -17,30 +17,121 @@ const residents = [
 ];
 ---
 
-<section class="in-residence">
-  <div class="idx-column">
-    <div class="idx-column-inner">
-      {residents.map((r, i) => (
-        <>
-          {i > 0 && <div class="resident-spacer" aria-hidden="true" />}
-          <article class="resident">
-            <h2 class="resident-name">{r.name}</h2>
-            <p class="resident-descriptor">{r.descriptor}</p>
-            <p class="resident-body">{r.body}</p>
-            <a class="resident-link" href={r.href} target="_blank" rel="noopener">{r.linkLabel} →</a>
-          </article>
-        </>
+<section id="businesses" class="businesses">
+  <div class="businesses-inner">
+    <header class="businesses-head">
+      <p class="section-eyebrow">Businesses</p>
+      <h2 class="businesses-heading">Independent work. Shared space.</h2>
+    </header>
+
+    <div class="businesses-grid">
+      {residents.map((r) => (
+        <article class="tenant">
+          <h3 class="tenant-name">{r.name}</h3>
+          <p class="tenant-descriptor">{r.descriptor}</p>
+          <p class="tenant-body">{r.body}</p>
+          <a class="tenant-link" href={r.href} target="_blank" rel="noopener">{r.linkLabel} <span aria-hidden="true">→</span></a>
+        </article>
       ))}
     </div>
   </div>
 </section>
 
 <style>
-  .in-residence {
-    padding: 88px 0 0;
+  .businesses {
+    padding: clamp(80px, 12vh, 144px) clamp(24px, 6vw, 80px);
+    background: var(--bg-warm);
   }
 
-  .resident-spacer {
-    height: 52px;
+  .businesses-inner {
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  .businesses-head {
+    text-align: center;
+    margin: 0 auto 64px;
+    max-width: 640px;
+  }
+
+  .businesses-heading {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(32px, 4.4vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    color: var(--text);
+    margin: 16px 0 0;
+  }
+
+  .businesses-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  @media (min-width: 768px) {
+    .businesses-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+  }
+
+  .tenant {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 40px;
+    background: var(--cream);
+    border: 1px solid var(--border-soft);
+  }
+
+  .tenant-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(24px, 2.8vw, 30px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .tenant-descriptor {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--text-soft);
+    margin: 0;
+  }
+
+  .tenant-body {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.72;
+    color: var(--text-soft);
+    margin: 0 0 4px;
+    text-wrap: pretty;
+  }
+
+  .tenant-link {
+    margin-top: auto;
+    padding-top: 4px;
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--clay);
+    text-decoration: none;
+    align-self: flex-start;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+    transition: border-color var(--dur-fast) var(--ease-out);
+  }
+
+  .tenant-link:hover {
+    border-bottom-color: var(--clay);
   }
 </style>
