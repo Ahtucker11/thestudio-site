@@ -1,0 +1,75 @@
+---
+import { site } from "../../lib/site";
+
+const mapsHref = "https://www.google.com/maps/search/?api=1&query=705+East+McMillan+St+Unit+1+Cincinnati+OH+45206";
+---
+
+<section class="visit">
+  <div class="container visit-inner">
+    <p class="section-label">Visit</p>
+
+    <div class="visit-layout">
+      <figure class="visit-photo">
+        <img
+          src="/images/exterior.jpg"
+          alt="The Studio at 705 East McMillan Street — grey-green storefront with bay windows and red door."
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+
+      <div class="visit-details">
+        <address class="address-block">
+          <span class="address-block-line">{site.address.street}</span>
+          <span class="address-block-line">{site.address.city}, {site.address.state} {site.address.zip}</span>
+        </address>
+
+        <a class="visit-map-link" href={mapsHref} target="_blank" rel="noopener">View on Google Maps →</a>
+
+        <p class="visit-note">By appointment or invitation. We're not open to walk-ins — but if you're visiting someone who works here, you're in the right place.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .visit {
+    padding: 64px 0 96px;
+  }
+
+  .visit-inner > .section-label {
+    margin-bottom: 32px;
+  }
+
+  .visit-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .visit-layout {
+      grid-template-columns: 1.2fr 1fr;
+      gap: 56px;
+    }
+  }
+
+  .visit-photo {
+    margin: 0;
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: var(--bg-aged);
+  }
+
+  .visit-photo img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .visit-details {
+    padding-top: 8px;
+  }
+</style>
