@@ -1,0 +1,46 @@
+---
+import { site } from "../../lib/site";
+const year = new Date().getFullYear();
+---
+
+<footer class="studio-footer">
+  <div class="container-narrow studio-footer-inner">
+    <a href={`mailto:${site.email}`} class="studio-footer-email">{site.email}</a>
+    <p class="studio-footer-copy">© {year} The Studio at 705 East McMillan</p>
+  </div>
+</footer>
+
+<style>
+  .studio-footer {
+    padding: 80px 0 64px;
+    border-top: 1px solid var(--border-soft);
+    margin-top: 96px;
+  }
+
+  .studio-footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .studio-footer-email {
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-strong);
+    padding-bottom: 2px;
+    align-self: flex-start;
+  }
+
+  .studio-footer-email:hover {
+    color: var(--brand-primary);
+    border-bottom-color: var(--brand-primary);
+  }
+
+  .studio-footer-copy {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+</style>

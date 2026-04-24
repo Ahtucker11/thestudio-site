@@ -1,7 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
-import Nav from "../components/layout/Nav.astro";
-import Footer from "../components/layout/Footer.astro";
+import StudioFooter from "../components/layout/StudioFooter.astro";
 
 interface Props {
   title: string;
@@ -22,9 +21,8 @@ const { title, description, canonicalPath, ogImage, noindex } = Astro.props;
   noindex={noindex}
 >
   <slot name="head" slot="head" />
-  <Nav />
   <main id="main-content">
     <slot />
   </main>
-  <Footer />
+  <StudioFooter />
 </BaseLayout>
