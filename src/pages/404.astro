@@ -1,24 +1,65 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import Nav from "../components/layout/Nav.astro";
-import Footer from "../components/layout/Footer.astro";
-import Container from "../components/layout/Container.astro";
-import Button from "../components/ui/Button.astro";
+import PageLayout from "../layouts/PageLayout.astro";
 ---
 
-<BaseLayout title="Page Not Found" description="The page you're looking for doesn't exist." noindex>
-  <Nav />
-  <main id="main-content" class="section-light py-32 md:py-40">
-    <Container>
-      <div class="text-center">
-        <span class="stat-num">404</span>
-        <h1 class="mt-4 font-display text-3xl font-bold text-brand">Page Not Found</h1>
-        <p class="mt-4 text-text-soft">The page you're looking for doesn't exist or has been moved.</p>
-        <div class="mt-8">
-          <Button variant="primary" size="lg" href="/">Go Home</Button>
-        </div>
-      </div>
-    </Container>
-  </main>
-  <Footer />
-</BaseLayout>
+<PageLayout
+  title="Page not found"
+  description="The page you are looking for does not exist."
+  noindex={true}
+>
+  <section class="notfound">
+    <div class="container-narrow">
+      <p class="notfound-label">404</p>
+      <h1 class="notfound-title">Not here.</h1>
+      <p class="notfound-body">
+        The page you're looking for doesn't exist. <a href="/">Return to the studio</a>.
+      </p>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .notfound {
+    padding: clamp(112px, 16vh, 192px) 0 96px;
+    min-height: 60vh;
+  }
+
+  .notfound-label {
+    font-family: var(--font-body);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 0 0 24px;
+  }
+
+  .notfound-title {
+    font-family: var(--font-display);
+    font-size: var(--text-5xl);
+    font-weight: 360;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin: 0 0 24px;
+  }
+
+  .notfound-body {
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--text-soft);
+    max-width: 48ch;
+  }
+
+  .notfound-body a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border-strong);
+    padding-bottom: 2px;
+  }
+
+  .notfound-body a:hover {
+    color: var(--brand-primary);
+    border-bottom-color: var(--brand-primary);
+  }
+</style>
