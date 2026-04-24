@@ -1,41 +1,42 @@
 /*
- * DESIGN TOKENS — PRIMARY CUSTOMIZATION SURFACE
+ * DESIGN TOKENS — The Studio
  *
- * Change these values to re-skin the entire site for a new client.
- * All component CSS references these semantic names.
+ * Warm editorial palette. Dusty green + cream + oxblood accent.
+ * Fraunces display, Inter body.
  */
 
 :root {
-  /* === BRAND COLORS: Change these per client === */
-  --brand-primary: #0c3924;
-  --brand-primary-light: #1d442f;
-  --brand-primary-card: #245536;
-  --brand-primary-pale: #e8f0eb;
-  --brand-accent: #d75a0e;
-  --brand-accent-light: #e8723a;
-  --brand-accent-dark: #9b2213;
+  /* === BRAND COLORS === */
+  --brand-primary: #3F4D42;       /* dusty dark green, echoing exterior paint */
+  --brand-primary-light: #4F5D52; /* hover/lighter */
+  --brand-primary-card: #3F4D42;
+  --brand-primary-pale: #E8EBE8;
+
+  --brand-accent: #7A2E2A;        /* oxblood door red — used once */
+  --brand-accent-light: #8E3E3A;
+  --brand-accent-dark: #5E2220;
 
   /* === SURFACES === */
-  --bg: #ede8dd;
-  --bg-warm: #e5e0d4;
-  --bg-aged: #e2dccf;
-  --cream: #f2eee5;
+  --bg: #F5EFE6;
+  --bg-warm: #F4EDE2;
+  --bg-aged: #EFE7D9;
+  --cream: #FAF6EE;
 
   /* === TEXT === */
-  --text: #1a1f1a;
-  --text-soft: #4a4f4a;
-  --text-muted: #5f645f;
-  --text-faint: #a5a9a5;
+  --text: #2C2420;
+  --text-soft: #4A3F38;
+  --text-muted: #6B6259;
+  --text-faint: #A39889;
 
-  /* === BORDERS (opacity-based) === */
-  --border: rgba(26, 31, 26, 0.08);
-  --border-soft: rgba(26, 31, 26, 0.12);
-  --border-strong: rgba(26, 31, 26, 0.22);
+  /* === BORDERS === */
+  --border: rgba(44, 36, 32, 0.08);
+  --border-soft: rgba(44, 36, 32, 0.12);
+  --border-strong: rgba(44, 36, 32, 0.22);
 
-  /* === FONTS: Swap font family names per client === */
-  --font-display: "Playfair Display", serif;
-  --font-body: "Manrope", sans-serif;
-  --font-mono: "JetBrains Mono", monospace;
+  /* === FONTS === */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", monospace;
 
   /* === TYPOGRAPHY SCALE (fluid) === */
   --text-2xs: 10px;
@@ -49,6 +50,7 @@
   --text-4xl: clamp(36px, 5vw, 52px);
   --text-5xl: clamp(48px, 7vw, 72px);
   --text-6xl: clamp(60px, 9vw, 96px);
+  --text-7xl: clamp(72px, 12vw, 144px);
 
   /* === SPACING (4px base) === */
   --space-1: 4px;
@@ -72,55 +74,39 @@
   --r-xl: 16px;
   --r-full: 9999px;
 
-  /* === SHADOWS (brand-tinted) === */
-  --shadow-sm: 0 1px 3px rgba(12, 57, 36, 0.08), 0 1px 2px rgba(12, 57, 36, 0.05);
-  --shadow-md: 0 4px 12px rgba(12, 57, 36, 0.1), 0 2px 4px rgba(12, 57, 36, 0.06);
-  --shadow-lg: 0 12px 32px rgba(12, 57, 36, 0.14), 0 4px 8px rgba(12, 57, 36, 0.08);
+  /* === SHADOWS === */
+  --shadow-sm: 0 1px 3px rgba(44, 36, 32, 0.06), 0 1px 2px rgba(44, 36, 32, 0.04);
+  --shadow-md: 0 4px 12px rgba(44, 36, 32, 0.08), 0 2px 4px rgba(44, 36, 32, 0.05);
+  --shadow-lg: 0 12px 32px rgba(44, 36, 32, 0.12), 0 4px 8px rgba(44, 36, 32, 0.06);
 
   /* === MOTION === */
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --dur-fast: 150ms;
   --dur-base: 250ms;
   --dur-slow: 400ms;
-
-  /* === TEXTURES (swap SVGs per client) === */
-  --tex-dot-grid: url("/textures/dot-grid.svg");
-  --tex-dot-dark: url("/textures/dot-grid-dark.svg");
-  --tex-topo: url("/textures/topo-lines.svg");
-  --tex-topo-dark: url("/textures/topo-lines-dark.svg");
-  --tex-ghost-hex: url("/textures/ghost-hex.svg");
-  --tex-paper-grain: url("/textures/paper-grain.svg");
 }
 
-/* === FONT FACES: Replace these files per client === */
+/* === FONT FACES === */
 @font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
-  font-weight: 400 700;
+  font-family: "Fraunces";
+  src: url("/fonts/Fraunces-Variable.woff2") format("woff2");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Playfair Display";
-  src: url("/fonts/PlayfairDisplay-Italic-Variable.woff2") format("woff2");
-  font-weight: 400 700;
+  font-family: "Fraunces";
+  src: url("/fonts/Fraunces-Italic-Variable.woff2") format("woff2");
+  font-weight: 100 900;
   font-style: italic;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Manrope";
-  src: url("/fonts/Manrope-Variable.woff2") format("woff2");
-  font-weight: 200 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2");
-  font-weight: 400 700;
+  font-family: "Inter";
+  src: url("/fonts/Inter-Variable.woff2") format("woff2");
+  font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
