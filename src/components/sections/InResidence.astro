@@ -1,0 +1,57 @@
+---
+const residents = [
+  {
+    name: "Scrappy Hat Solutions",
+    descriptor: "Embedded product execution for venture-backed B2B startups.",
+    body: "A two-person consultancy that embeds with founders as their product function — shipping real software, not decks. Run by Adam Tucker and Jake Smierciak.",
+    href: "https://scrappyhat.com",
+    linkLabel: "scrappyhat.com",
+  },
+  {
+    name: "Marigold Birth Collective",
+    descriptor: "Doula care and birth education in Greater Cincinnati.",
+    body: "Evidence-based, family-centered support through pregnancy, birth, and early postpartum. Founded and run by Courtney Tucker.",
+    href: "https://marigoldbirthcollective.com",
+    linkLabel: "marigoldbirthcollective.com",
+  },
+];
+---
+
+<section class="in-residence">
+  <div class="container in-residence-inner">
+    <p class="section-label">In residence</p>
+    <div class="residence-grid">
+      {residents.map((r) => (
+        <article class="residence-card">
+          <h2 class="residence-card-name">{r.name}</h2>
+          <p class="residence-card-descriptor">{r.descriptor}</p>
+          <p class="residence-card-body">{r.body}</p>
+          <a class="residence-card-link" href={r.href} target="_blank" rel="noopener">{r.linkLabel} →</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .in-residence {
+    padding: 64px 0;
+  }
+
+  .in-residence-inner > .section-label {
+    margin-bottom: 32px;
+  }
+
+  .residence-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .residence-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+  }
+</style>
