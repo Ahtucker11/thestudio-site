@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
+import Nav from "../components/layout/Nav.astro";
 import StudioFooter from "../components/layout/StudioFooter.astro";
 
 interface Props {
@@ -8,9 +9,10 @@ interface Props {
   canonicalPath?: string;
   ogImage?: string;
   noindex?: boolean;
+  hideNav?: boolean;
 }
 
-const { title, description, canonicalPath, ogImage, noindex } = Astro.props;
+const { title, description, canonicalPath, ogImage, noindex, hideNav } = Astro.props;
 ---
 
 <BaseLayout
@@ -21,6 +23,7 @@ const { title, description, canonicalPath, ogImage, noindex } = Astro.props;
   noindex={noindex}
 >
   <slot name="head" slot="head" />
+  {!hideNav && <Nav />}
   <main id="main-content">
     <slot />
   </main>
