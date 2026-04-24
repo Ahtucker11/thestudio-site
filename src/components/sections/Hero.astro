@@ -2,49 +2,84 @@
 ---
 <section class="hero">
   <div class="container-narrow hero-inner">
-    <p class="hero-label">705 East McMillan · Walnut Hills</p>
-    <h1 class="hero-mark">The Studio</h1>
-    <p class="hero-tagline">A small creative studio in Walnut Hills, Cincinnati.</p>
+    <h1 class="hero-wordmark" aria-label="The Studio">
+      <span aria-hidden="true" class="hero-the">the</span>
+      <span aria-hidden="true" class="hero-studio">Studio</span>
+    </h1>
+    <p class="hero-band">
+      <span class="hero-band-ornament" aria-hidden="true">·</span>
+      <span class="hero-band-text">Walnut Hills, Cincinnati</span>
+      <span class="hero-band-ornament" aria-hidden="true">·</span>
+    </p>
   </div>
 </section>
 
 <style>
   .hero {
-    padding: clamp(112px, 16vh, 192px) 0 clamp(64px, 10vh, 112px);
+    padding: clamp(128px, 18vh, 224px) 0 clamp(80px, 12vh, 144px);
   }
 
   .hero-inner {
     text-align: left;
   }
 
-  .hero-label {
+  .hero-wordmark {
+    display: block;
+    margin: 0;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .hero-the {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(28px, 3.8vw, 54px);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    color: var(--text-soft);
+    letter-spacing: -0.015em;
+    line-height: 1;
+    margin-bottom: clamp(-18px, -2vw, -28px);
+    margin-left: 0.18em;
+  }
+
+  .hero-studio {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 500;
+    font-size: clamp(104px, 19vw, 232px);
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+    color: var(--text);
+    letter-spacing: -0.035em;
+    line-height: 0.92;
+  }
+
+  .hero-band {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: clamp(32px, 5vh, 56px) 0 0;
+    padding-left: 0.18em;
     font-family: var(--font-body);
     font-size: 11px;
     font-weight: 500;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--text-muted);
-    margin: 0 0 28px;
   }
 
-  .hero-mark {
-    font-family: var(--font-display);
-    font-size: var(--text-7xl);
-    font-weight: 360;
-    line-height: 0.95;
-    letter-spacing: -0.025em;
-    color: var(--text);
-    margin: 0;
-  }
-
-  .hero-tagline {
+  .hero-band-ornament {
     font-family: var(--font-display);
     font-style: italic;
-    font-weight: 300;
-    font-size: clamp(19px, 2.2vw, 26px);
-    line-height: 1.4;
-    color: var(--text-soft);
-    margin: 28px 0 0;
-    max-width: 30ch;
+    font-size: 18px;
+    line-height: 0;
+    color: var(--brand-accent);
+    transform: translateY(2px);
+  }
+
+  .hero-band-text {
+    line-height: 1;
   }
 </style>

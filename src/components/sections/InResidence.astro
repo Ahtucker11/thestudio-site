@@ -19,7 +19,11 @@ const residents = [
 
 <section class="in-residence">
   <div class="container in-residence-inner">
-    <p class="section-label">In residence</p>
+    <p class="chapter-mark">
+      <span class="chapter-numeral">I</span>
+      <span class="chapter-sep" aria-hidden="true">·</span>
+      <span class="chapter-title">In residence</span>
+    </p>
     <div class="residence-grid">
       {residents.map((r) => (
         <article class="residence-card">
@@ -35,23 +39,23 @@ const residents = [
 
 <style>
   .in-residence {
-    padding: 64px 0;
+    padding: 72px 0;
   }
 
-  .in-residence-inner > .section-label {
-    margin-bottom: 32px;
+  .in-residence-inner > .chapter-mark {
+    margin-bottom: 40px;
   }
 
   .residence-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 32px;
   }
 
   @media (min-width: 768px) {
     .residence-grid {
       grid-template-columns: 1fr 1fr;
-      gap: 32px;
+      gap: 48px;
     }
   }
 </style>
