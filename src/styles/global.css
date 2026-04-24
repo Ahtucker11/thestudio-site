@@ -14,7 +14,7 @@
   --color-brand-pale: var(--brand-primary-pale);
   --color-accent: var(--brand-accent);
   --color-accent-light: var(--brand-accent-light);
-  --color-sh-text: var(--text);
+  --color-text: var(--text);
   --color-text-soft: var(--text-soft);
   --color-text-muted: var(--text-muted);
   --color-text-faint: var(--text-faint);
@@ -27,50 +27,28 @@
   --font-mono: var(--font-mono);
 }
 
-/* ===== BASE STYLES ===== */
+/* ===== BASE ===== */
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 96px;
-  background-color: var(--brand-primary);
+  background-color: var(--bg);
 }
 
 body {
   background-color: var(--bg);
-  background-image: var(--tex-dot-grid), var(--tex-topo);
-  background-repeat: repeat, no-repeat;
-  background-size: 24px 24px, 1440px auto;
-  background-position: 0 0, center top;
-  background-attachment: fixed, fixed;
   color: var(--text);
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-body);
   font-size: var(--text-base);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-display), serif;
+  font-family: var(--font-display);
+  font-weight: 400;
 }
 
 a {
+  color: inherit;
   transition: color var(--dur-fast) var(--ease-out),
-    background-color var(--dur-fast) var(--ease-out),
-    border-color var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-fast) var(--ease-out),
-    transform var(--dur-fast) var(--ease-out);
-}
-
-button {
-  transition: color var(--dur-fast) var(--ease-out),
-    background-color var(--dur-fast) var(--ease-out),
-    border-color var(--dur-fast) var(--ease-out),
-    box-shadow var(--dur-fast) var(--ease-out),
-    transform var(--dur-fast) var(--ease-out);
-}
-
-@media (max-width: 767px) {
-  body {
-    background-attachment: scroll, scroll;
-  }
+    border-color var(--dur-fast) var(--ease-out);
 }
