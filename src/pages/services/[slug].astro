@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import Container from "../../components/layout/Container.astro";
+import SectionLabel from "../../components/ui/SectionLabel.astro";
+import Button from "../../components/ui/Button.astro";
+import FadeIn from "../../components/ui/FadeIn.astro";
+import CTA from "../../components/sections/CTA.astro";
+
+export async function getStaticPaths() {
+  const services = await getCollection("services");
+  return services.map((service) => ({
+    params: { slug: service.id },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+---
+
+<PageLayout
+  title={service.data.seo.title || service.data.title}
+  description={service.data.seo.description}
+  canonicalPath={`/services/${service.id}`}
+>
+  <section class="section-light py-20 md:py-28">
+    <Container>
+      <FadeIn>
+        <SectionLabel>Services</SectionLabel>
+        <h1 class="mt-4 font-display font-bold text-brand" style="font-size: var(--text-4xl)">
+          {service.data.title}
+        </h1>
+        <p class="mt-4 text-lg text-text-soft">{service.data.tagline}</p>
+      </FadeIn>
+
+      <FadeIn delay={100}>
+        <div class="prose-brand mt-12 max-w-3xl">
+          <Content />
+        </div>
+      </FadeIn>
+
+      <FadeIn delay={200}>
+        <div class="mt-12">
+          <Button variant="primary" size="lg" href="/contact">
+            Get Started
+          </Button>
+          <Button variant="text-link" href="/services" class="ml-4">
+            All Services
+          </Button>
+        </div>
+      </FadeIn>
+    </Container>
+  </section>
+
+  <CTA
+    heading="Interested in This Service?"
+    body="Let's discuss how we can help."
+    primaryCta={{ label: "Contact Us", href: "/contact" }}
+  />
+</PageLayout>

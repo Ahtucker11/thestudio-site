@@ -1,0 +1,65 @@
+---
+import SEOHead from "../components/seo/SEOHead.astro";
+import JsonLd from "../components/seo/JsonLd.astro";
+import SkipLink from "../components/layout/SkipLink.astro";
+import { buildOrganizationJsonLd } from "../lib/seo";
+import { site } from "../lib/site";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalPath?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const { title, description, canonicalPath, ogImage, noindex } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Preload fonts -->
+    <link rel="preload" href="/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/PlayfairDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin />
+
+    <SEOHead
+      title={title}
+      description={description}
+      canonicalPath={canonicalPath}
+      ogImage={ogImage}
+      noindex={noindex}
+    />
+
+    <JsonLd data={buildOrganizationJsonLd()} />
+
+    <slot name="head" />
+  </head>
+  <body>
+    <SkipLink />
+    <script is:inline>document.documentElement.dataset.js = "true";</script>
+    <slot />
+
+    {site.analytics.gaId && (
+      <script
+        is:inline
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${site.analytics.gaId}`}
+      />
+    )}
+    {site.analytics.gaId && (
+      <script is:inline define:vars={{ gaId: site.analytics.gaId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    )}
+  </body>
+</html>

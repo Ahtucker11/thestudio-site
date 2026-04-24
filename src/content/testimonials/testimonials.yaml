@@ -1,0 +1,13 @@
+items:
+  - quote: "Working with this team transformed our business. Highly recommended."
+    name: "Jane Smith"
+    role: "CEO"
+    company: "Example Corp"
+  - quote: "Professional, responsive, and delivered beyond expectations."
+    name: "John Doe"
+    role: "Founder"
+    company: "Startup Inc"
+  - quote: "The best investment we've made for our brand."
+    name: "Sarah Johnson"
+    role: "Marketing Director"
+    company: "Brand Co"

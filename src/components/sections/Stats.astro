@@ -1,0 +1,36 @@
+---
+import Container from "../layout/Container.astro";
+import StatBlock from "../ui/StatBlock.astro";
+import FadeIn from "../ui/FadeIn.astro";
+
+interface StatItem {
+  value: string;
+  label: string;
+  description?: string;
+}
+
+interface Props {
+  stats: StatItem[];
+  dark?: boolean;
+}
+
+const { stats, dark = false } = Astro.props;
+const sectionClass = dark ? "section-dark" : "section-warm";
+---
+
+<section class={`${sectionClass} py-20 md:py-24`}>
+  <Container>
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-3">
+      {stats.map((stat, i) => (
+        <FadeIn delay={i * 100}>
+          <StatBlock
+            value={stat.value}
+            label={stat.label}
+            description={stat.description}
+            dark={dark}
+          />
+        </FadeIn>
+      ))}
+    </div>
+  </Container>
+</section>

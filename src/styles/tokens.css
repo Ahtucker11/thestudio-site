@@ -1,0 +1,126 @@
+/*
+ * DESIGN TOKENS — PRIMARY CUSTOMIZATION SURFACE
+ *
+ * Change these values to re-skin the entire site for a new client.
+ * All component CSS references these semantic names.
+ */
+
+:root {
+  /* === BRAND COLORS: Change these per client === */
+  --brand-primary: #0c3924;
+  --brand-primary-light: #1d442f;
+  --brand-primary-card: #245536;
+  --brand-primary-pale: #e8f0eb;
+  --brand-accent: #d75a0e;
+  --brand-accent-light: #e8723a;
+  --brand-accent-dark: #9b2213;
+
+  /* === SURFACES === */
+  --bg: #ede8dd;
+  --bg-warm: #e5e0d4;
+  --bg-aged: #e2dccf;
+  --cream: #f2eee5;
+
+  /* === TEXT === */
+  --text: #1a1f1a;
+  --text-soft: #4a4f4a;
+  --text-muted: #5f645f;
+  --text-faint: #a5a9a5;
+
+  /* === BORDERS (opacity-based) === */
+  --border: rgba(26, 31, 26, 0.08);
+  --border-soft: rgba(26, 31, 26, 0.12);
+  --border-strong: rgba(26, 31, 26, 0.22);
+
+  /* === FONTS: Swap font family names per client === */
+  --font-display: "Playfair Display", serif;
+  --font-body: "Manrope", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* === TYPOGRAPHY SCALE (fluid) === */
+  --text-2xs: 10px;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: clamp(20px, 2vw, 24px);
+  --text-2xl: clamp(24px, 3vw, 32px);
+  --text-3xl: clamp(28px, 4vw, 40px);
+  --text-4xl: clamp(36px, 5vw, 52px);
+  --text-5xl: clamp(48px, 7vw, 72px);
+  --text-6xl: clamp(60px, 9vw, 96px);
+
+  /* === SPACING (4px base) === */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* === BORDER RADIUS === */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 10px;
+  --r-xl: 16px;
+  --r-full: 9999px;
+
+  /* === SHADOWS (brand-tinted) === */
+  --shadow-sm: 0 1px 3px rgba(12, 57, 36, 0.08), 0 1px 2px rgba(12, 57, 36, 0.05);
+  --shadow-md: 0 4px 12px rgba(12, 57, 36, 0.1), 0 2px 4px rgba(12, 57, 36, 0.06);
+  --shadow-lg: 0 12px 32px rgba(12, 57, 36, 0.14), 0 4px 8px rgba(12, 57, 36, 0.08);
+
+  /* === MOTION === */
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 400ms;
+
+  /* === TEXTURES (swap SVGs per client) === */
+  --tex-dot-grid: url("/textures/dot-grid.svg");
+  --tex-dot-dark: url("/textures/dot-grid-dark.svg");
+  --tex-topo: url("/textures/topo-lines.svg");
+  --tex-topo-dark: url("/textures/topo-lines-dark.svg");
+  --tex-ghost-hex: url("/textures/ghost-hex.svg");
+  --tex-paper-grain: url("/textures/paper-grain.svg");
+}
+
+/* === FONT FACES: Replace these files per client === */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/fonts/PlayfairDisplay-Italic-Variable.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("/fonts/Manrope-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}

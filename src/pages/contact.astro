@@ -1,0 +1,90 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Container from "../components/layout/Container.astro";
+import SectionLabel from "../components/ui/SectionLabel.astro";
+import FadeIn from "../components/ui/FadeIn.astro";
+import { site } from "../lib/site";
+---
+
+<PageLayout
+  title="Contact"
+  description={`Get in touch with ${site.name}. We'd love to hear from you.`}
+  canonicalPath="/contact"
+>
+  <section class="section-light py-20 md:py-28">
+    <Container>
+      <div class="grid grid-cols-1 gap-16 md:grid-cols-2">
+        <div>
+          <FadeIn>
+            <SectionLabel>Contact</SectionLabel>
+            <h1 class="mt-4 font-display font-bold text-brand" style="font-size: var(--text-4xl)">
+              Get in Touch
+            </h1>
+            <p class="mt-6 text-lg leading-relaxed text-text-soft">
+              Have a question or ready to start a project? Fill out the form and we'll get back to you soon.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={100}>
+            <div class="mt-8 space-y-4">
+              {site.email && (
+                <div>
+                  <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-text-muted">
+                    Email
+                  </span>
+                  <p class="mt-1">
+                    <a href={`mailto:${site.email}`} class="text-brand hover:text-brand-light">
+                      {site.email}
+                    </a>
+                  </p>
+                </div>
+              )}
+              {site.phone && (
+                <div>
+                  <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-text-muted">
+                    Phone
+                  </span>
+                  <p class="mt-1">
+                    <a href={`tel:${site.phone}`} class="text-brand hover:text-brand-light">
+                      {site.phone}
+                    </a>
+                  </p>
+                </div>
+              )}
+            </div>
+          </FadeIn>
+        </div>
+
+        <FadeIn delay={200}>
+          <form
+            class="paper-card space-y-5 p-8"
+            action="#"
+            method="POST"
+          >
+            <div>
+              <label for="name" class="input-label">Name</label>
+              <input type="text" id="name" name="name" class="input" required />
+            </div>
+            <div>
+              <label for="email" class="input-label">Email</label>
+              <input type="email" id="email" name="email" class="input" required />
+            </div>
+            <div>
+              <label for="message" class="input-label">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                class="input"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-lg btn-primary w-full">
+              Send Message
+            </button>
+          </form>
+        </FadeIn>
+      </div>
+    </Container>
+  </section>
+</PageLayout>

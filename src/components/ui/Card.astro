@@ -1,0 +1,21 @@
+---
+import { cn } from "../../lib/utils";
+
+interface Props {
+  variant?: "paper" | "dark" | "accent" | "outline";
+  class?: string;
+}
+
+const { variant = "paper", class: className } = Astro.props;
+
+const variantClass = {
+  paper: "paper-card",
+  dark: "dark-paper-card",
+  accent: "accent-card",
+  outline: "surface-outline",
+}[variant];
+---
+
+<div class={cn(variantClass, className)}>
+  <slot />
+</div>

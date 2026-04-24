@@ -1,0 +1,55 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import Hero from "../components/sections/Hero.astro";
+import Stats from "../components/sections/Stats.astro";
+import HowItWorks from "../components/sections/HowItWorks.astro";
+import ServiceCards from "../components/sections/ServiceCards.astro";
+import Testimonials from "../components/sections/Testimonials.astro";
+import FAQ from "../components/sections/FAQ.astro";
+import CTA from "../components/sections/CTA.astro";
+import { site } from "../lib/site";
+---
+
+<PageLayout
+  title={site.name}
+  description={site.tagline}
+  canonicalPath="/"
+>
+  <Hero
+    eyebrow="Welcome"
+    heading="Your Headline Goes Here"
+    subheading="A compelling subheading that describes what you do and why it matters to your audience."
+    primaryCta={{ label: "Get Started", href: "/contact" }}
+    secondaryCta={{ label: "Our Services", href: "/services" }}
+    fieldNote="A short note or callout that adds urgency or context."
+  />
+
+  <Stats
+    stats={[
+      { value: "10+", label: "Years Experience", description: "Serving clients with excellence" },
+      { value: "50+", label: "Projects Delivered", description: "Across diverse industries" },
+      { value: "100%", label: "Client Satisfaction", description: "Our commitment to quality" },
+    ]}
+  />
+
+  <HowItWorks
+    steps={[
+      { num: "01", title: "Consult", description: "We learn about your needs, goals, and vision." },
+      { num: "02", title: "Create", description: "We design and build a solution tailored to you." },
+      { num: "03", title: "Deliver", description: "We launch, refine, and ensure your success." },
+    ]}
+  />
+
+  <ServiceCards />
+
+  <Testimonials />
+
+  <FAQ />
+
+  <CTA
+    heading="Ready to Get Started?"
+    body="Let's discuss how we can help bring your vision to life."
+    primaryCta={{ label: "Contact Us", href: "/contact" }}
+    secondaryCta={{ label: "Learn More", href: "/about" }}
+  />
+</PageLayout>

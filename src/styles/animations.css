@@ -1,0 +1,76 @@
+/* ===== KEYFRAMES ===== */
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes pulse-ring {
+  0% { scale: 1; }
+  50% { scale: 1.03; }
+  100% { scale: 1; }
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* ===== MOTION UTILITIES ===== */
+
+.motion-ticker {
+  animation: ticker 30s linear infinite;
+}
+
+.motion-ticker-tight {
+  animation: ticker 22s linear infinite;
+}
+
+.motion-pulse-ring {
+  animation: pulse-ring 6s ease-in-out infinite;
+}
+
+.motion-pulse-ring-delayed {
+  animation: pulse-ring 6s ease-in-out infinite 1.5s;
+}
+
+.motion-scroll-bounce {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* ===== FADE-IN (driven by IntersectionObserver) ===== */
+
+.fadein-root {
+  --fadein-delay: 0ms;
+}
+
+html[data-js="true"] .fadein-root {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) var(--fadein-delay),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) var(--fadein-delay);
+}
+
+html[data-js="true"] .fadein-root--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== REDUCED MOTION ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ticker,
+  .motion-ticker-tight,
+  .motion-pulse-ring,
+  .motion-pulse-ring-delayed,
+  .motion-scroll-bounce {
+    animation: none !important;
+  }
+
+  .fadein-root {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

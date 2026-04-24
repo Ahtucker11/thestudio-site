@@ -1,0 +1,16 @@
+---
+interface Props {
+  color?: "dark" | "light";
+}
+
+const { color = "dark" } = Astro.props;
+const textColor = color === "light" ? "text-cream/50" : "text-text-muted";
+const lineColor = color === "light" ? "bg-accent/60" : "bg-accent";
+---
+
+<div class="flex items-center gap-3">
+  <span class={`block h-[2px] w-5 ${lineColor}`}></span>
+  <span class={`font-mono text-[10px] font-semibold uppercase tracking-[0.2em] ${textColor}`}>
+    <slot />
+  </span>
+</div>

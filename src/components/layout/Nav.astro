@@ -1,0 +1,80 @@
+---
+import Container from "./Container.astro";
+import { navLinks } from "../../data/navigation";
+import { site } from "../../lib/site";
+import { cn } from "../../lib/utils";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-border-soft bg-cream/95 backdrop-blur-sm"
+  id="site-nav"
+>
+  <Container>
+    <nav class="flex items-center justify-between py-4" aria-label="Main navigation">
+      <a href="/" class="font-display text-lg font-bold text-brand">
+        {site.name}
+      </a>
+
+      <!-- Desktop nav -->
+      <div class="hidden items-center gap-8 md:flex">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={cn("nav-link", currentPath === link.href && "nav-link--active")}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a href="/contact" class="btn btn-sm btn-primary">Get in Touch</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <button
+        class="flex flex-col gap-1.5 md:hidden"
+        aria-label="Open menu"
+        id="mobile-menu-toggle"
+      >
+        <span class="block h-0.5 w-6 bg-brand"></span>
+        <span class="block h-0.5 w-6 bg-brand"></span>
+        <span class="block h-0.5 w-6 bg-brand"></span>
+      </button>
+    </nav>
+  </Container>
+
+  <!-- Mobile menu -->
+  <div
+    class="hidden border-t border-border-soft bg-cream md:hidden"
+    id="mobile-menu"
+  >
+    <Container>
+      <div class="flex flex-col gap-4 py-6">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class={cn("nav-link text-base", currentPath === link.href && "nav-link--active")}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a href="/contact" class="btn btn-md btn-primary mt-2 w-full text-center">
+          Get in Touch
+        </a>
+      </div>
+    </Container>
+  </div>
+</header>
+
+<script is:inline>
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      const isOpen = !menu.classList.contains("hidden");
+      toggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    });
+  }
+</script>
+
