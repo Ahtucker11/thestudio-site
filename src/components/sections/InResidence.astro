@@ -18,20 +18,18 @@ const residents = [
 ---
 
 <section class="in-residence">
-  <div class="container in-residence-inner">
-    <p class="chapter-mark">
-      <span class="chapter-numeral">I</span>
-      <span class="chapter-sep" aria-hidden="true">·</span>
-      <span class="chapter-title">In residence</span>
-    </p>
-    <div class="residence-grid">
-      {residents.map((r) => (
-        <article class="residence-card">
-          <h2 class="residence-card-name">{r.name}</h2>
-          <p class="residence-card-descriptor">{r.descriptor}</p>
-          <p class="residence-card-body">{r.body}</p>
-          <a class="residence-card-link" href={r.href} target="_blank" rel="noopener">{r.linkLabel} →</a>
-        </article>
+  <div class="idx-column">
+    <div class="idx-column-inner">
+      {residents.map((r, i) => (
+        <>
+          {i > 0 && <div class="resident-spacer" aria-hidden="true" />}
+          <article class="resident">
+            <h2 class="resident-name">{r.name}</h2>
+            <p class="resident-descriptor">{r.descriptor}</p>
+            <p class="resident-body">{r.body}</p>
+            <a class="resident-link" href={r.href} target="_blank" rel="noopener">{r.linkLabel} →</a>
+          </article>
+        </>
       ))}
     </div>
   </div>
@@ -39,23 +37,10 @@ const residents = [
 
 <style>
   .in-residence {
-    padding: 72px 0;
+    padding: 88px 0 0;
   }
 
-  .in-residence-inner > .chapter-mark {
-    margin-bottom: 40px;
-  }
-
-  .residence-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  @media (min-width: 768px) {
-    .residence-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-    }
+  .resident-spacer {
+    height: 52px;
   }
 </style>

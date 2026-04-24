@@ -36,7 +36,7 @@
   /* === FONTS === */
   --font-display: "Fraunces", "Georgia", serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", monospace;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", monospace;
 
   /* === TYPOGRAPHY SCALE (fluid) === */
   --text-2xs: 10px;
@@ -107,6 +107,14 @@
   font-family: "Inter";
   src: url("/fonts/Inter-Variable.woff2") format("woff2");
   font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("/fonts/JetBrainsMono-Variable.woff2") format("woff2");
+  font-weight: 100 800;
   font-style: normal;
   font-display: swap;
 }

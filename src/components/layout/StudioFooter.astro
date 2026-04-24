@@ -4,43 +4,46 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="studio-footer">
-  <div class="container-narrow studio-footer-inner">
-    <a href={`mailto:${site.email}`} class="studio-footer-email">{site.email}</a>
-    <p class="studio-footer-copy">© {year} The Studio at 705 East McMillan</p>
+  <div class="idx-column">
+    <div class="idx-column-inner studio-footer-inner">
+      <a href={`mailto:${site.email}`} class="studio-footer-email">{site.email}</a>
+      <p class="studio-footer-copy">© {year} · The Studio at 705 East McMillan</p>
+    </div>
   </div>
 </footer>
 
 <style>
   .studio-footer {
-    padding: 80px 0 64px;
-    border-top: 1px solid var(--border-soft);
     margin-top: 96px;
   }
 
   .studio-footer-inner {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    padding-top: 28px;
+    border-top: 1px solid var(--border-soft);
+    padding-bottom: 72px;
   }
 
   .studio-footer-email {
-    font-family: var(--font-body);
-    font-size: 15px;
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-variation-settings: "opsz" 144;
+    font-size: 17px;
     color: var(--text);
     text-decoration: none;
-    border-bottom: 1px solid var(--border-strong);
-    padding-bottom: 2px;
-    align-self: flex-start;
+    border-bottom: 1px solid transparent;
   }
 
   .studio-footer-email:hover {
-    color: var(--brand-primary);
-    border-bottom-color: var(--brand-primary);
+    border-bottom-color: var(--text-soft);
   }
 
   .studio-footer-copy {
-    font-size: 13px;
-    color: var(--text-muted);
-    margin: 0;
+    margin: 10px 0 0;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
   }
 </style>

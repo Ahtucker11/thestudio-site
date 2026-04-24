@@ -1,155 +1,110 @@
 /*
- * COMPONENT CLASSES — The Studio
+ * COMPONENT CLASSES — The Studio (Index Card)
  */
 
-/* ===== LAYOUT ===== */
+/* ===== LAYOUT — single left-indented column ===== */
 
-.container {
-  max-width: 1040px;
-  margin: 0 auto;
-  padding: 0 var(--space-6);
-}
-
-.container-narrow {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 var(--space-6);
-}
-
-/* ===== CHAPTER MARK (section labels) ===== */
-
-.chapter-mark {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 10px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-
-.chapter-numeral {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 500;
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  font-size: 22px;
-  color: var(--brand-accent);
-  letter-spacing: 0;
-}
-
-.chapter-sep {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 18px;
-  color: var(--text-faint);
-  line-height: 0;
-  transform: translateY(-2px);
-}
-
-.chapter-title {
-  font-family: var(--font-display);
-  font-style: italic;
-  font-weight: 400;
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  font-size: 22px;
-  color: var(--text);
-  letter-spacing: -0.01em;
-}
-
-/* ===== HAIRLINE DIVIDER ===== */
-
-.hairline {
-  display: block;
-  width: 100%;
-  max-width: 1040px;
-  margin: 0 auto;
-  border: 0;
-  border-top: 1px solid var(--border-soft);
-  padding: 0 var(--space-6);
+.idx-column {
+  max-width: 860px;
+  margin: 0 auto 0 0;
+  padding-left: clamp(24px, 20vw, 240px);
+  padding-right: clamp(24px, 6vw, 60px);
   box-sizing: content-box;
 }
 
-/* ===== RESIDENCE CARD ===== */
-
-.residence-card {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 4px 0 0;
-  border-top: 1px solid var(--border-soft);
-  padding-top: 28px;
-  background: transparent;
+.idx-column-inner {
+  max-width: 620px;
 }
 
-.residence-card-name {
-  font-family: var(--font-display);
-  font-weight: 440;
-  font-variation-settings: "opsz" 144;
-  font-size: clamp(26px, 3.2vw, 34px);
-  line-height: 1.12;
-  letter-spacing: -0.015em;
-  color: var(--text);
+/* ===== META CALL NUMBER (mono) ===== */
+
+.meta-line {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
   margin: 0;
 }
 
-.residence-card-descriptor {
+/* ===== RESIDENT BLOCK ===== */
+
+.resident {
+  display: block;
+}
+
+.resident-name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: 26px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin: 0 0 10px;
+}
+
+.resident-descriptor {
   font-family: var(--font-display);
   font-style: italic;
   font-weight: 380;
-  font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
-  font-size: clamp(17px, 1.9vw, 20px);
-  line-height: 1.4;
-  color: var(--brand-primary);
-  margin: 0;
-  max-width: 34ch;
-}
-
-.residence-card-body {
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 15.5px;
+  line-height: 1.5;
   color: var(--text-soft);
-  margin: 0;
+  margin: 0 0 14px;
+  max-width: 38ch;
 }
 
-.residence-card-link {
-  margin-top: 6px;
+.resident-body {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: var(--text-soft);
+  margin: 0 0 14px;
+  text-wrap: pretty;
+}
+
+.resident-link {
+  font-family: var(--font-body);
   font-size: 13px;
-  font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--text);
   text-decoration: none;
-  border-bottom: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--text-soft);
   padding-bottom: 2px;
-  align-self: flex-start;
 }
 
-.residence-card-link:hover {
+.resident-link:hover {
   color: var(--brand-primary);
   border-bottom-color: var(--brand-primary);
 }
 
-/* ===== VISIT ADDRESS ===== */
+/* ===== VISIT ===== */
 
-.address-block {
-  font-family: var(--font-body);
-  font-size: 17px;
-  font-style: normal;
-  line-height: 1.55;
+.visit-address {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: 22px;
+  line-height: 1.5;
   color: var(--text);
+  font-style: normal;
+  margin: 0 0 16px;
 }
 
-.address-block-line {
+.visit-address-line {
   display: block;
 }
 
 .visit-map-link {
   display: inline-block;
-  margin-top: 12px;
-  font-size: 14px;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.04em;
   color: var(--text);
   text-decoration: none;
-  border-bottom: 1px solid var(--border-strong);
+  border-bottom: 1px solid var(--text-soft);
   padding-bottom: 2px;
 }
 
@@ -159,9 +114,22 @@
 }
 
 .visit-note {
-  margin-top: 24px;
-  font-size: 14px;
-  line-height: 1.65;
+  margin: 32px 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 350;
+  font-size: 16px;
+  line-height: 1.6;
   color: var(--text-muted);
-  max-width: 46ch;
+  max-width: 460px;
+  text-wrap: pretty;
+}
+
+/* ===== MOBILE ADJUSTMENTS ===== */
+
+@media (max-width: 768px) {
+  .idx-column {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }

@@ -2,6 +2,7 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import Hero from "../components/sections/Hero.astro";
 import Origin from "../components/sections/Origin.astro";
+import Photo from "../components/sections/Photo.astro";
 import InResidence from "../components/sections/InResidence.astro";
 import Visit from "../components/sections/Visit.astro";
 import { site } from "../lib/site";
@@ -14,10 +15,8 @@ import { site } from "../lib/site";
   ogImage="/og-image.png"
 >
   <Hero />
-  <hr class="hairline" />
   <Origin />
-  <hr class="hairline" />
+  <Photo />
   <InResidence />
-  <hr class="hairline" />
   <Visit />
 </PageLayout>
