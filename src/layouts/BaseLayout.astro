@@ -2,7 +2,7 @@
 import SEOHead from "../components/seo/SEOHead.astro";
 import JsonLd from "../components/seo/JsonLd.astro";
 import SkipLink from "../components/layout/SkipLink.astro";
-import { buildOrganizationJsonLd } from "../lib/seo";
+import { buildLocalBusinessJsonLd } from "../lib/seo";
 import { site } from "../lib/site";
 import "../styles/global.css";
 
@@ -26,8 +26,8 @@ const { title, description, canonicalPath, ogImage, noindex } = Astro.props;
     <meta name="generator" content={Astro.generator} />
 
     <!-- Preload fonts -->
-    <link rel="preload" href="/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/PlayfairDisplay-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Inter-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/Fraunces-Variable.woff2" as="font" type="font/woff2" crossorigin />
 
     <SEOHead
       title={title}
@@ -37,7 +37,7 @@ const { title, description, canonicalPath, ogImage, noindex } = Astro.props;
       noindex={noindex}
     />
 
-    <JsonLd data={buildOrganizationJsonLd()} />
+    <JsonLd data={buildLocalBusinessJsonLd()} />
 
     <slot name="head" />
   </head>

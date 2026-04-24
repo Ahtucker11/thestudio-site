@@ -1,18 +1,17 @@
 /**
- * Central site configuration — EDIT THIS PER CLIENT.
- * This is the second customization surface after tokens.css.
+ * Site configuration — The Studio
  */
 export const site = {
-  name: "Client Name",
-  tagline: "Your tagline here",
-  url: import.meta.env.PUBLIC_SITE_URL || "https://example.com",
-  email: "hello@example.com",
+  name: "The Studio",
+  tagline: "A small creative studio in Walnut Hills, Cincinnati.",
+  url: import.meta.env.PUBLIC_SITE_URL || "https://thestudiowalnuthills.com",
+  email: "hello@thestudiowalnuthills.com",
   phone: "",
   address: {
-    street: "",
-    city: "",
-    state: "",
-    zip: "",
+    street: "705 East McMillan Street, Unit 1",
+    city: "Cincinnati",
+    state: "OH",
+    zip: "45206",
   },
   social: {
     linkedin: "",
@@ -20,14 +19,12 @@ export const site = {
     facebook: "",
   },
   booking: {
-    calSlug: import.meta.env.PUBLIC_CAL_SLUG || "",
+    calSlug: "",
     fallbackUrl: "",
   },
   analytics: {
-    gaId: import.meta.env.PUBLIC_GA_ID || "",
+    gaId: "",
   },
-  /** Used for Organization JSON-LD */
   founders: [] as Array<{ name: string; title: string }>,
-  /** Topics/skills for Organization schema knowsAbout */
   knowsAbout: [] as string[],
 };
