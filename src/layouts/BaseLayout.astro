@@ -41,15 +41,15 @@ const { title, description, canonicalPath, ogImage, noindex } = Astro.props;
 
     <JsonLd data={buildLocalBusinessJsonLd()} />
 
-    <Analytics />
-    <SpeedInsights />
-
     <slot name="head" />
   </head>
   <body>
     <SkipLink />
     <script is:inline>document.documentElement.dataset.js = "true";</script>
     <slot />
+
+    <Analytics />
+    <SpeedInsights />
 
     {site.analytics.gaId && (
       <script
