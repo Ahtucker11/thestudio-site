@@ -1,4 +1,6 @@
 ---
+import Analytics from "@vercel/analytics/astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 import SEOHead from "../components/seo/SEOHead.astro";
 import JsonLd from "../components/seo/JsonLd.astro";
 import SkipLink from "../components/layout/SkipLink.astro";
@@ -38,6 +40,9 @@ const { title, description, canonicalPath, ogImage, noindex } = Astro.props;
     />
 
     <JsonLd data={buildLocalBusinessJsonLd()} />
+
+    <Analytics />
+    <SpeedInsights />
 
     <slot name="head" />
   </head>
